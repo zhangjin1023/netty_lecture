@@ -20,7 +20,7 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
         if (msg instanceof HttpRequest) {
             ByteBuf content = Unpooled.copiedBuffer("Hello World!", CharsetUtil.UTF_8);
             FullHttpResponse httpResponse = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, content);
-            httpResponse.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/palin");
+            httpResponse.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html");
             httpResponse.headers().set(HttpHeaderNames.CONTENT_LENGTH, content.readableBytes());
 
             ctx.writeAndFlush(httpResponse);
